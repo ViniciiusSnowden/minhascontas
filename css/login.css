@@ -3,7 +3,7 @@
     --input-padding-y: .75rem;
   }
   
-  .form_cadastro, .alert_sucesso, .alert_erro{
+  .form_cadastro, .alert_sucesso, .alert_erro,.loading-ajax-img{
     display: none;
   }
   

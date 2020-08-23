@@ -9,7 +9,12 @@
 	<title>Minhas Contas</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/login.css">
 </head>
-
+<script>
+	base_url = "<?php echo base_url(); ?>";
+</script>
+<?php if($this->session->userdata('nome')){
+header('Location: inicio'); 
+}?>
 <body>
 	<div class="container">
 		<div class="row">
@@ -18,21 +23,22 @@
 					<div class="card-body">
 						<h5 class="card-title text-center">Acessar</h5>
 						<div class="alert alert-success alert_sucesso" role="alert">
-							Cadastrado com sucesso!
+							<span id="alert_sucesso_p"></span>
 						</div>
 						<div class="alert alert-danger alert_erro" role="alert">
-							Por favor, preencha todos os campos.
+							<span id="alert_erro_p"></span>
 						</div>
 						<form class="form-signin form_login">
 							<div class="form-label-group">
-								<input type="text" id="inputEmail" class="form-control" placeholder="Login" required autofocus>
-								<label for="inputEmail">Login</label>
+								<input type="text" id="log_usuario" class="form-control" placeholder="Login" required autofocus>
+								<label for="log_usuario">Login</label>
 							</div>
 							<div class="form-label-group">
-								<input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-								<label for="inputPassword">Senha</label>
+								<input type="password" id="log_senha" class="form-control" placeholder="Senha" required>
+								<label for="log_senha">Senha</label>
 							</div>
-							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
+							<img id="ajax-img-login" class="loading-ajax-img" src="<?= base_url() ?>img/ajax-loader.gif" alt="">
+							<button class="btn btn-lg btn-primary btn-block text-uppercase btn_logar">Entrar</button>
 							<button class="btn btn-lg btn-google btn-block text-uppercase btn_abrir_cadastro"><i class="fab fa-google mr-2"></i> Cadastrar</button>
 						</form>
 						<form class="form-signin form_cadastro">
@@ -48,6 +54,7 @@
 								<input type="password" id="cad_senha" class="form-control" placeholder="senha" required>
 								<label for="cad_senha">Senha</label>
 							</div>
+							<img id="ajax-img-cadastro" class="loading-ajax-img" src="<?= base_url() ?>img/ajax-loader.gif" alt="">
 							<button class="btn btn-lg btn-google btn-block text-uppercase btn_realizar_cadastro"><i class="fab fa-google mr-2"></i> Cadastrar</button>
 							<button class="btn btn-lg btn-primary btn-block text-uppercase btn_voltar_login">Voltar para o login</button>
 						</form>
