@@ -59,4 +59,14 @@ $route['register'] = 'welcome/cadastrar';
 $route['inicio'] = 'inicio/index';
 $route['logout'] = 'welcome/sair';
 
+$route['contas'] = 'contas/index';
+
+$route['contas/salvar'] = 'contas/salvarNovaConta';
+$route['contas/listar'] = 'contas/listarContas';
+$route['inicio/listar'] = 'inicio/listarDadosDash';
+
+
+
+
+
 

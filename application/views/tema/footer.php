@@ -48,7 +48,16 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>arquivos_tema/js/sb-admin-2.min.js"></script>
+  <script src="<?= base_url();?>js/geral/index.js"></script>
 
+    <!-- Page level plugins -->
+    <script src="<?= base_url();?>arquivos_tema/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url();?>arquivos_tema/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="<?= base_url();?>arquivos_tema/js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

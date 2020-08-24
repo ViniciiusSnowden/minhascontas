@@ -22,8 +22,9 @@ class Welcome extends CI_Controller
 		if (!$validar) {
 			$dadosAjax['senha'] 		= sha1(md5(trim($dadosAjax['senha'])) . '$_key');
 			$dadosAjax['data_cadastro'] = date("Y-m-d H:i:s", time());
-			$this->Cadastro_model->salvar($dadosAjax);
+			$id = $this->Cadastro_model->salvar($dadosAjax, 'usuario');
 			$sessao['nome'] = $dadosAjax['nome'];
+			$sessao['id_usuario'] = $id;
 			$this->session->set_userdata($sessao);
 			$dadosRetorno['status'] 	= 200;
 			$dadosRetorno['response'] 	= 'Cadastro efetuado';
@@ -42,6 +43,7 @@ class Welcome extends CI_Controller
 		$res   = $this->Cadastro_model->verificarUsuario(trim($login), $senha);
 		if ($res) {
 			$sessao['nome'] = $res[0]->nome;
+			$sessao['id_usuario'] = $res[0]->id;
 			$this->session->set_userdata($sessao);
 			$dadosRetorno['status'] = 200;
 			$dadosRetorno['response'] = 'Login efetuado com sucesso!';

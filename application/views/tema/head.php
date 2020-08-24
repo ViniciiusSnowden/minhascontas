@@ -18,6 +18,12 @@
   <!-- Custom styles for this template-->
   <link href="<?= base_url();?>arquivos_tema/css/sb-admin-2.min.css" rel="stylesheet">
 
+  <link href="<?= base_url();?>arquivos_tema/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <script>
+    	base_url = "<?php echo base_url(); ?>";
+  </script>
+
 </head>
 <?php if(!$this->session->userdata('nome')){
 header('Location: welcome'); 
