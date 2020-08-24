@@ -26,7 +26,7 @@ class Inicio extends CI_Controller
 		$res['total'] 			= $total[0]->total > 0 ? number_format($total[0]->total,2,",",".") : '0,00';
 		$res['totalPago'] 		= $valorTotalPago[0]->total > 0 ? number_format($valorTotalPago[0]->total,2,",",".") : '0,00';
 		$res['totalPendente'] 	= $totalPed[0]->total;
-		$res['PorctPag'] 		= $porcentagemPago;
+		$res['PorctPag'] 		= number_format($porcentagemPago, 0, '.', ',');
 
 		echo json_encode($res);
 	}
