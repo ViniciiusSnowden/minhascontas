@@ -77,7 +77,7 @@
 <!-- Page level custom scripts -->
 
 <script>
-  $('#btn-sair').click(function() {
+  $('.btn-sair').click(function() {
     $.ajax({
         url: base_url + 'logout',
         type: 'GET',
