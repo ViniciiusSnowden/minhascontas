@@ -20,7 +20,7 @@
                 </table>
             </div>
 
-            <div id="form-nova-conta" style="display:none;" class="animate__animated animate__zoomIn">
+            <div id="form-nova-conta" style="display:none;">
                 <input type="hidden" class="form-control" id="id_conta">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Descrição da despesa</label>
