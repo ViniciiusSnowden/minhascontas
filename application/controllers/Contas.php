@@ -25,6 +25,7 @@ class Contas extends CI_Controller
     {
         $dadosAjax = $this->input->post();
         $dadosAjax['valor'] = tratarValorToSql($dadosAjax['valor']);
+        $dadosAjax['data_cadastro'] = date("Y-m-d H:i:s", time());
         $dadosAjax['id_usuario'] = $this->id_usuario;
         $this->Contas_model->inserir($dadosAjax);
 
