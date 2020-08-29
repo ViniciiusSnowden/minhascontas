@@ -114,7 +114,7 @@
                   Perfil
                 </a> -->
                 <!-- <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" href="/logout">
+                <a class="dropdown-item btn-sair" style="cursor:pointer;">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sair
                 </a>
@@ -125,7 +125,6 @@
 
         </nav>
         <!-- End of Topbar -->
-
 
 <style>
 .toastPrincipal{
