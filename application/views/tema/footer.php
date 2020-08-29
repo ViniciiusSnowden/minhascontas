@@ -84,7 +84,7 @@
         dataType: 'json'
       })
       .done(function(server) {
-        Location.reload()
+        location.reload()
       })
   });
 </script>
