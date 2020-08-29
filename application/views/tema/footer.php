@@ -69,8 +69,8 @@
   <script src="<?= base_url();?>arquivos_tema/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="<?= base_url();?>arquivos_tema/datatables/jquery.dataTables.min.js"></script>
-  <script src="<?= base_url();?>arquivos_tema/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
