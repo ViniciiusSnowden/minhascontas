@@ -7,7 +7,8 @@ class Cadastro_model extends CI_Model
 
 	public function salvar($dados)
 	{
-		return $this->db->insert($this->tabela, $dados);
+		$this->db->insert($this->tabela, $dados);
+		return $this->db->insert_id();		 
 	}
 
 	public function verificarUsuario($usuario, $senha)

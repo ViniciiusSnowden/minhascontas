@@ -66,7 +66,7 @@ class Welcome extends CI_Controller
 
 	public function sair(){
 		$this->session->sess_destroy();
-        redirect();
+        header("Refresh: 0");
 	}
 
 }
