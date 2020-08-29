@@ -60,7 +60,7 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="<?= base_url();?>arquivos_tema/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>arquivos_tema/jquery-easing/jquery.easing.min.js"></script>
