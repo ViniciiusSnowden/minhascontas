@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="card shadow mb-4 row animate__animated animate__zoomIn">
+    <div class="card shadow mb-4 row animate__animated animate__fadeInDown">
         <div class="card-header py-3">
             <div style="text-align: right;">
                 <i style="border-radius:50px;font-size:37px;color:#4e73df;cursor:pointer;" id="icon_abrir_cadastro" class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -20,7 +20,7 @@
                 </table>
             </div>
 
-            <div id="form-nova-conta" style="display:none;">
+            <div id="form-nova-conta" style="display:none;" class="animate__animated animate__fadeInDown">
                 <input type="hidden" class="form-control" id="id_conta">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Descrição da despesa</label>
