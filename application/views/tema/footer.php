@@ -59,7 +59,7 @@
 <!-- end modal exclusao -->
 
   <!-- Bootstrap core JavaScript-->
-  <script src="arquivos_tema/jquery/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="<?= base_url();?>arquivos_tema/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
