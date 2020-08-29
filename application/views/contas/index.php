@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="card shadow mb-4 row animate__animated animate__fadeInDown">
+    <div class="card shadow mb-4 row animate__animated animate__zoomIn">
         <div class="card-header py-3">
             <div style="text-align: right;">
                 <i style="border-radius:50px;font-size:37px;color:#4e73df;cursor:pointer;" id="icon_abrir_cadastro" class="fa fa-plus-circle" aria-hidden="true"></i>
