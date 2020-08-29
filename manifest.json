@@ -3,7 +3,7 @@
     "short_name": "Minhas Contas",
     "lang": "pt-BR",
     "start_url": "http://161.97.107.158:8090/",
-    "display": "browser",
+    "display": "standalone",
     "icons": [
       {
         "src": "https://image.flaticon.com/icons/svg/3154/3154363.svg",
