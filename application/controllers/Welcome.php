@@ -57,7 +57,7 @@ class Welcome extends CI_Controller
 	private function verificarUsuario($usuario, $senha = false)
 	{
 		$res = $this->Cadastro_model->verificarUsuario($usuario, $senha);
-		if (count($res) > 0) {
+		if ($res != null) {
 			return $res;
 		} else {
 			return false;
