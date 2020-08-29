@@ -75,7 +75,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="<?= base_url();?>arquivos_tema/js/demo/datatables-demo.js"></script>
 </body>
 
 </html>
