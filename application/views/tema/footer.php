@@ -63,10 +63,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="<?= base_url();?>arquivos_tema/jquery-easing/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="<?= base_url();?>arquivos_tema/js/sb-admin-2.min.js"></script>
+  <script src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
   <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
