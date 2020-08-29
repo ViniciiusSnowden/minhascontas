@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Minhas Contas</title>
+	<link href="https://image.flaticon.com/icons/svg/3154/3154363.svg" rel="shortcut icon" type="image/x-icon" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/login.css">
 </head>
 <script>

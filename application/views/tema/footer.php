@@ -19,25 +19,44 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+<!-- toast-->
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast toastPrincipal hide" data-autohide="false">
+  <div class="toast-header">
+    <img src="https://image.flaticon.com/icons/svg/3154/3154363.svg" style="height:25px;" class="rounded mr-2" alt="...">
+    <strong class="mr-auto">Minhas Contas</strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body" style="color:black">
+    <span id="spanToastPrincipal">
+    </span>
+  </div>
+</div>
+<!-- end toast-->
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
+<!--  modal exclusao-->
+<!-- Modal -->
+<div class="modal fade" id="modal_excluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir essa conta?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmar-exclusao">Sim, excluir</button>
       </div>
     </div>
   </div>
+</div>
+<!-- end modal exclusao -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url();?>arquivos_tema/jquery/jquery.min.js"></script>
@@ -48,7 +67,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>arquivos_tema/js/sb-admin-2.min.js"></script>
-  <script src="<?= base_url();?>js/geral/index.js"></script>
 
     <!-- Page level plugins -->
     <script src="<?= base_url();?>arquivos_tema/datatables/jquery.dataTables.min.js"></script>

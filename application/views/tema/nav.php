@@ -1,10 +1,9 @@
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/inicio">
@@ -20,15 +19,15 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="/inicio">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <i class="fas fa-fw fa-tachometer-alt navDash"></i>
+          <span class="navDash">Dashboard</span></a>
       </li>
       
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="/contas">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Contas</span></a>
+          <i class="fas fa-fw fa-table navCont"></i>
+          <span class="navCont">Contas</span></a>
       </li>
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -126,3 +125,15 @@
 
         </nav>
         <!-- End of Topbar -->
+
+
+<style>
+.toastPrincipal{
+    background-color: #1cc88a;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    z-index: 5000;
+}
+</style>

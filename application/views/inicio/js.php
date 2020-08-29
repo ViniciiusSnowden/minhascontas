@@ -1,4 +1,5 @@
 <script>
+    $('.navDash').css('color','#fff');
     listar();
     function listar()
     {

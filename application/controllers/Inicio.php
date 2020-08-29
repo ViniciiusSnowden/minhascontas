@@ -7,7 +7,7 @@ class Inicio extends CI_Controller
 	{
 		date_default_timezone_set('America/Sao_Paulo');
 		parent::__construct();
-		$this->load->model('Cadastro_model');	
+		$this->load->model('Contas_model');
 	}
 
 	public function index()
@@ -18,11 +18,16 @@ class Inicio extends CI_Controller
 	}
 
 	public function listarDadosDash(){
-		$id = $this->session->userdata['id_usuario'];
-		$total = $this->Cadastro_model->listarTudoDash($id, 'contas');
-		$valorTotalPago = $this->Cadastro_model->listarTudoPagoDash($id, 'contas');
-		$totalPed = $this->Cadastro_model->listarTudoPendenteContDash($id, 'contas');
-		$porcentagemPago = ($valorTotalPago[0]->qtd*100)/$total[0]->qtd;
+		$id 			= $this->session->userdata['id_usuario'];
+		$total 			= $this->Contas_model->listarTudoDash($id);
+		$valorTotalPago = $this->Contas_model->listarTudoPagoDash($id);
+		$totalPed 		= $this->Contas_model->listarTudoPendenteContDash($id);
+
+		if($total[0]->qtd > 0){
+			$porcentagemPago = ($valorTotalPago[0]->qtd*100)/$total[0]->qtd;
+		}else{
+			$porcentagemPago = 0;
+		}
 		$res['total'] 			= $total[0]->total > 0 ? number_format($total[0]->total,2,",",".") : '0,00';
 		$res['totalPago'] 		= $valorTotalPago[0]->total > 0 ? number_format($valorTotalPago[0]->total,2,",",".") : '0,00';
 		$res['totalPendente'] 	= $totalPed[0]->total;

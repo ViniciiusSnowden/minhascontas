@@ -3,11 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Contas extends CI_Controller
 {
+    private $id_usuario;
+
     public function __construct()
     {
         date_default_timezone_set('America/Sao_Paulo');
         parent::__construct();
-        $this->load->model('Cadastro_model');
+        $this->load->model('Contas_model');
+        $this->id_usuario = $this->session->userdata['id_usuario'];
+        $this->load->helper('util');
     }
 
     public function index()
@@ -20,37 +24,75 @@ class Contas extends CI_Controller
     public function salvarNovaConta()
     {
         $dadosAjax = $this->input->post();
-        $dadosAjax['valor'] = $this->tratarValor($dadosAjax['valor']);
-        $id = $this->session->userdata['id_usuario'];
-        $dadosAjax['id_usuario'] = $id;
-        $this->Cadastro_model->salvar($dadosAjax, 'contas');
+        $dadosAjax['valor'] = tratarValorToSql($dadosAjax['valor']);
+        $dadosAjax['id_usuario'] = $this->id_usuario;
+        $this->Contas_model->inserir($dadosAjax);
 
         $dadosRetorno['status']         = 200;
-        $dadosRetorno['response']       = 'Cadastro efetuado';
+        $dadosRetorno['response']       = 'Cadastro efetuado!';
         echo json_encode($dadosRetorno);
-    }
-
-    private function tratarValor($valor)
-    {
-        $v1 = explode('R$', $valor);
-        $valor = str_replace(".", "", $v1[1]);
-        $valor = str_replace(",", ".", $valor);
-        return $valor;
     }
 
     public function listarContas()
     {
-        $id = $this->session->userdata['id_usuario'];
-        $dados = $this->Cadastro_model->listarContasUsuario($id, 'contas');
+        $dados = $this->Contas_model->listarContasUsuario($this->id_usuario);
         $response = [];
-        if(count($dados) > 0){
+        if (count($dados) > 0) {
             foreach ($dados as $key => $value) {
                 $response[$key]['id'] = $value->id;
-                $bandage = $value->status == 1? '<span class="badge badge-success">Pago</span>': '<span class="badge badge-warning">Pendente</span>';
-                $response[$key]['descricao'] = $value->descricao.' '.$bandage;
+                $bandage = $value->status == 1 ? '<span class="badge badge-success">Pago</span>' : '<span class="badge badge-warning">Pendente</span>';
+                $response[$key]['descricao'] = '<a class="linhaEditar" href="javascript:void(0)" data-id="' . $value->id . '">' . $value->descricao . ' ' . $bandage . '</a>';
                 $response[$key]['status'] = $value->status;
+                $response[$key]['data_vencimento'] = dataToBr($value->data_vencimento);
             }
         }
         echo json_encode($response);
+    }
+
+    public function listarContaPorId()
+    {
+        $id_conta = $this->uri->segment(3);
+        if (is_numeric($id_conta)) {
+            $dados = $this->Contas_model->listarContaUsuarioPorId($this->id_usuario, $id_conta);
+            if ($dados != null) {
+                $dados['valor_br'] = number_format($dados['valor'], 2, ",", ".");
+                echo json_encode($dados);
+            } else {
+                $dadosErro['codigo'] = 350;
+                $dadosErro['erro']   = 'Registro não encontrado.';
+                echo json_encode($dadosErro);
+            }
+        } else {
+            parametroNaoNumerico();
+        }
+    }
+
+    public function salvarEdicao()
+    {
+        $id_conta = $this->uri->segment(3);
+        if (is_numeric($id_conta)) {
+            $dadosAjax = $this->input->post();
+            $dadosAjax['valor'] = tratarValorToSql($dadosAjax['valor']);
+            $this->Contas_model->salvar($dadosAjax,$id_conta, $this->id_usuario);
+            $dadosRetorno['status']         = 200;
+            $dadosRetorno['response']       = 'Conta alterada!';
+            echo json_encode($dadosRetorno);
+        }else{
+            parametroNaoNumerico();
+        }
+    }
+
+    public function deletar()
+    {
+        $id_conta = $this->uri->segment(3);
+        if (is_numeric($id_conta)) {
+            $dadosAjax['removido'] = 'S'; 
+            $this->Contas_model->salvar($dadosAjax,$id_conta, $this->id_usuario);
+            $dadosRetorno['status']         = 200;
+            $dadosRetorno['response']       = 'Conta Excluída.';
+            echo json_encode($dadosRetorno);
+        }else{
+            parametroNaoNumerico();
+        }
     }
 }
