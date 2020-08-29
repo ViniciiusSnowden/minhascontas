@@ -77,6 +77,15 @@
 <!-- Page level custom scripts -->
 
 <script>
+
+$( document ).ajaxStart(function() {
+  $( "#gifCentro" ).show();
+});
+
+$( document ).ajaxStop(function() {
+  $( "#gifCentro" ).hide();
+});
+
   $('.btn-sair').click(function() {
     $.ajax({
         url: base_url + 'logout',

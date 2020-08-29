@@ -25,7 +25,23 @@
     	base_url = "<?php echo base_url(); ?>";
   </script>
 
+<style>
+#gifCentro {
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+    position:fixed;
+    z-index:99999;
+    display:none;
+}
+</style>
 </head>
 <?php if(!$this->session->userdata('nome')){
 header('Location: welcome'); 
 }?>
+
+<img src="<?php echo base_url(); ?>arquivos_tema/img/Spin-1s-200px.gif" id="gifCentro" alt="">
