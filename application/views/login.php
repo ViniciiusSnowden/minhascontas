@@ -2,6 +2,17 @@
 <html lang="pt-BR">
 
 <head>
+	<link rel="manifest" href="manifest.json">
+
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Minhas Contas">
+	<meta name="apple-mobile-web-app-title" content="Minhas Contas">
+	<meta name="msapplication-starturl" content="http://161.97.107.158:8090/">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="icon" type="image/png" sizes="192x192" href="https://image.flaticon.com/icons/svg/3154/3154363.svg">
+	<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="https://image.flaticon.com/icons/svg/3154/3154363.svg">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
