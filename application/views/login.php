@@ -9,7 +9,7 @@
 	<meta name="application-name" content="Minhas Contas">
 	<meta name="apple-mobile-web-app-title" content="Minhas Contas">
 	<meta name="msapplication-starturl" content="http://161.97.107.158:8090/">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no user-scalable=no">
 
 	<link rel="icon" type="image/png" sizes="192x192" href="https://image.flaticon.com/icons/svg/3154/3154363.svg">
 	<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="https://image.flaticon.com/icons/svg/3154/3154363.svg">
