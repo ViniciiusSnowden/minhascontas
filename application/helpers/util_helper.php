@@ -25,10 +25,3 @@ function parametroNaoNumerico()
         $dadosErro['erro']   = 'Você precisa passar um parâmtro númerico.';
         echo json_encode($dadosErro);
 }
-
-function json($dados, $status = 200){
-        $this->output
-            ->set_content_type('application/json')
-            ->set_status_header($status)
-            ->set_output(json_encode($dados));
-}

@@ -47,7 +47,7 @@ class Contas extends CI_Controller
                 $response[$key]['data_vencimento'] = dataToBr($value->data_vencimento);
             }
         }
-        json($response);
+        $this->json($response);
     }
 
     public function listarContaPorId()
@@ -95,5 +95,12 @@ class Contas extends CI_Controller
         }else{
             parametroNaoNumerico();
         }
+    }
+
+    private function json($dados, $status = 200){
+        $this->output
+            ->set_content_type('application/json')
+            ->set_status_header($status)
+            ->set_output(json_encode($dados));
     }
 }
