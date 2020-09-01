@@ -47,7 +47,7 @@ class Contas extends CI_Controller
                 $response[$key]['data_vencimento'] = dataToBr($value->data_vencimento);
             }
         }
-        json_output($response);
+        json_output(200, $response);
 
         // echo json_encode();
     }
