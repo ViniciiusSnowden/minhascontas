@@ -31,7 +31,7 @@ class Contas extends CI_Controller
 
         $dadosRetorno['status']         = 200;
         $dadosRetorno['response']       = 'Cadastro efetuado!';
-        echo json_encode($dadosRetorno);
+        $this->json($dadosRetorno);
     }
 
     public function listarContas()
@@ -57,11 +57,11 @@ class Contas extends CI_Controller
             $dados = $this->Contas_model->listarContaUsuarioPorId($this->id_usuario, $id_conta);
             if ($dados != null) {
                 $dados['valor_br'] = number_format($dados['valor'], 2, ",", ".");
-                echo json_encode($dados);
+                $this->json($dados);
             } else {
                 $dadosErro['codigo'] = 350;
                 $dadosErro['erro']   = 'Registro não encontrado.';
-                echo json_encode($dadosErro);
+                $this->json($dadosErro);
             }
         } else {
             parametroNaoNumerico();
@@ -77,7 +77,7 @@ class Contas extends CI_Controller
             $this->Contas_model->salvar($dadosAjax,$id_conta, $this->id_usuario);
             $dadosRetorno['status']         = 200;
             $dadosRetorno['response']       = 'Conta alterada!';
-            echo json_encode($dadosRetorno);
+            $this->json($dadosRetorno);
         }else{
             parametroNaoNumerico();
         }
@@ -91,7 +91,7 @@ class Contas extends CI_Controller
             $this->Contas_model->salvar($dadosAjax,$id_conta, $this->id_usuario);
             $dadosRetorno['status']         = 200;
             $dadosRetorno['response']       = 'Conta Excluída.';
-            echo json_encode($dadosRetorno);
+            $this->json($dadosRetorno);
         }else{
             parametroNaoNumerico();
         }
