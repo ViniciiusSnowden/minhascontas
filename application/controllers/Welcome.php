@@ -2,13 +2,17 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Welcome extends CI_Controller
-{
+{	
+	private $json;
 	public function __construct()
 	{	
 		date_default_timezone_set('America/Sao_Paulo');
 		parent::__construct();
 		$this->load->model('Cadastro_model');
+		$this->json = new Contas();
+
 	}
+	
 
 	public function index()
 	{
@@ -33,7 +37,7 @@ class Welcome extends CI_Controller
 			$dadosRetorno['response'] 	= 'Usuário já cadastrado.';
 		}
 
-		echo json_encode($dadosRetorno);
+		$this->json->json($dadosRetorno);
 	}
 
 	public function realizarLogin()

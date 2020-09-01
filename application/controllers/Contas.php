@@ -13,7 +13,7 @@ class Contas extends CI_Controller
         $this->id_usuario = $this->session->userdata['id_usuario'];
         $this->load->helper('util');
     }
-
+    
     public function index()
     {
         $dadosView['meio'] = 'contas/index';
@@ -97,7 +97,7 @@ class Contas extends CI_Controller
         }
     }
 
-    private function json($dados, $status = 200){
+    public function json($dados, $status = 200){
         $this->output
             ->set_content_type('application/json')
             ->set_status_header($status)
