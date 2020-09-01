@@ -97,7 +97,7 @@ class Contas extends CI_Controller
         }
     }
 
-    public function json($dados, $status = 200){
+    private function json($dados, $status = 200){
         $this->output
             ->set_content_type('application/json')
             ->set_status_header($status)
