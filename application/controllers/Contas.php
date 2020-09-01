@@ -47,7 +47,9 @@ class Contas extends CI_Controller
                 $response[$key]['data_vencimento'] = dataToBr($value->data_vencimento);
             }
         }
-        echo json_encode($response);
+        json_output($response);
+
+        // echo json_encode();
     }
 
     public function listarContaPorId()
