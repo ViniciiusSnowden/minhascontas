@@ -24,26 +24,18 @@
 
     $('#salvar-nova-conta').click(function() {
 
-        if ($('#repetir_cad').is(":checked")) {
-            $('#repetir_cad').val('1')
-        } else {
-            $('#repetir_cad').val('0')
-        }
-
         let id_conta = $('#id_conta').val();
 
         let descricao = $('#desc_cadastro').val();
         let valor = $('#valor_cadastro').val();
         let data = $('#data_cadastro').val();
         let status = $('#cad_status').val();
-        let repetir = $('#repetir_cad').val();
 
         let dados = {
             descricao: descricao,
             valor: valor,
             data_vencimento: data,
             status: status,
-            recorrente: repetir,
         }
         if (id_conta > 0) {
             url_contas = base_url + 'contas/salvar/' + id_conta
@@ -78,8 +70,6 @@
         $('#valor_cadastro').val('');
         $('#data_cadastro').val('');
         $('#cad_status').val(0);
-        $('#repetir_cad').val(0);
-        $('#repetir_cad').prop('checked', false);
     }
 
     function listar() {
@@ -162,11 +152,6 @@
                 $('#valor_cadastro').val('R$' + server.valor_br);
                 $('#data_cadastro').val(server.data_vencimento);
                 $('#cad_status').val(server.status);
-                if (server.recorrente == 1) {
-                    $('#repetir_cad').prop('checked', true);
-                } else {
-                    $('#repetir_cad').prop('checked', false);
-                }
 
                 $('#icon_fechar_cadastro').show();
                 $('#icon_abrir_cadastro').hide();
