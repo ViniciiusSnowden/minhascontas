@@ -47,7 +47,7 @@ class Contas_model extends CI_Model
     
     public function listarContaUsuarioPorId($id_usuario, $id)
 	{
-		$this->db->select('descricao,valor,data_vencimento,status,recorrente,valor_fixo');
+		$this->db->select('descricao,valor,data_vencimento,status,recorrente');
 		$this->db->where('id_usuario = ', $id_usuario);
 		$this->db->where('id = ', $id);
 		$this->db->where('removido = "N"');
