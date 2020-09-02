@@ -41,12 +41,6 @@
                         <option value="1">Pago</option>
                     </select>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="repetir_cad">
-                    <label class="form-check-label" for="repetir_cad">
-                        Repetir conta todo mês
-                    </label>
-                </div>
                 <div style="text-align: center;">
                     <button type="button" style="margin-top:20px;" id="salvar-nova-conta" class="btn btn-success">Salvar</button>
                     <button type="button" style="margin-top:20px; display:none;" id="excluir-conta" class="btn btn-danger">Excluir</button>
