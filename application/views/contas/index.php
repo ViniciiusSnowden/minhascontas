@@ -27,8 +27,15 @@
                     <input type="text" class="form-control" id="desc_cadastro">
                 </div>
                 <div class="form-group">
+                    <label for="exampleFormControlInput1">Tipo de conta</label>
+                    <select class="form-control" id="cad_status">
+                        <option value="0">Despesa</option>
+                        <option value="1">Receita</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="exampleFormControlInput1">Valor</label>
-                    <input type="text" class="form-control" id="valor_cadastro">
+                    <input type="text" class="form-control" id="valor_cadastro" placeholder="0,00">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Data de vencimento</label>
