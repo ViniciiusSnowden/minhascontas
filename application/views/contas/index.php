@@ -29,12 +29,6 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Valor</label>
                     <input type="text" class="form-control" id="valor_cadastro">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="valor_fixo_cad">
-                        <label class="form-check-label" for="valor_fixo_cad">
-                            Valor fixo
-                        </label>
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Data de vencimento</label>

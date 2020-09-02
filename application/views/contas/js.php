@@ -23,11 +23,6 @@
     });
 
     $('#salvar-nova-conta').click(function() {
-        if ($('#valor_fixo_cad').is(":checked")) {
-            $('#valor_fixo_cad').val('1')
-        } else {
-            $('#valor_fixo_cad').val('0')
-        }
 
         if ($('#repetir_cad').is(":checked")) {
             $('#repetir_cad').val('1')
@@ -42,7 +37,6 @@
         let data = $('#data_cadastro').val();
         let status = $('#cad_status').val();
         let repetir = $('#repetir_cad').val();
-        let valorFixo = $('#valor_fixo_cad').val();
 
         let dados = {
             descricao: descricao,
@@ -50,7 +44,6 @@
             data_vencimento: data,
             status: status,
             recorrente: repetir,
-            valor_fixo: valorFixo
         }
         if (id_conta > 0) {
             url_contas = base_url + 'contas/salvar/' + id_conta
@@ -86,8 +79,6 @@
         $('#data_cadastro').val('');
         $('#cad_status').val(0);
         $('#repetir_cad').val(0);
-        $('#valor_fixo_cad').val(0);
-        $('#valor_fixo_cad').prop('checked', false);
         $('#repetir_cad').prop('checked', false);
     }
 
@@ -175,12 +166,6 @@
                     $('#repetir_cad').prop('checked', true);
                 } else {
                     $('#repetir_cad').prop('checked', false);
-                }
-
-                if (server.valor_fixo == 1) {
-                    $('#valor_fixo_cad').prop('checked', true);
-                } else {
-                    $('#valor_fixo_cad').prop('checked', false);
                 }
 
                 $('#icon_fechar_cadastro').show();
