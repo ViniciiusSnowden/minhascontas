@@ -25,11 +25,28 @@
 
          <!-- Earnings (Monthly) Card Example -->
          <div class="col-xl-3 col-md-6 mb-4 animate__animated animate__backInLeft">
+             <div class="card border-left-danger shadow h-100 py-2">
+                 <div class="card-body">
+                     <div class="row no-gutters align-items-center">
+                         <div class="col mr-2">
+                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Valor total de Despesas</div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="despesa_total"></span></div>
+                         </div>
+                         <div class="col-auto">
+                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <!-- Earnings (Monthly) Card Example -->
+         <div class="col-xl-3 col-md-6 mb-4 animate__animated animate__backInLeft">
              <div class="card border-left-primary shadow h-100 py-2">
                  <div class="card-body">
                      <div class="row no-gutters align-items-center">
                          <div class="col mr-2">
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Valor pago</div>
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Valor de Despesas pagas</div>
                              <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="despesa"></span></div>
                          </div>
                          <div class="col-auto">

@@ -39,6 +39,15 @@ class Contas_model extends CI_Model
 		return $this->db->get($this->tabela)->row_array();
 	}
 
+	public function getDespesaTotalValor($id)
+	{
+		$this->db->select('sum(valor) as total');
+		$this->db->where('id_usuario = ', $id);
+		$this->db->where('tipo_conta = 0');
+		$this->db->where('removido = "N"');
+		return $this->db->get($this->tabela)->row_array();
+	}
+
 	public function getDespesaTotal($id)
 	{
 		$this->db->select('count(id) as total');

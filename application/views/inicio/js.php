@@ -10,6 +10,7 @@
             })
             .done(function(server) {
                 $('#saldo').text(server.saldo);
+                $('#despesa_total').text(server.despesa_total);
                 $('#despesa').text(server.despesa);
                 $('#span_total_pago_porcent').text(server.porcentagem_pago + '%')
                 $('#span_total_pendent').text(server.qtd_pendente);
