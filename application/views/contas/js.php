@@ -26,16 +26,19 @@
 
         let id_conta = $('#id_conta').val();
 
-        let descricao = $('#desc_cadastro').val();
-        let valor = $('#valor_cadastro').val();
-        let data = $('#data_cadastro').val();
-        let status = $('#cad_status').val();
+        let descricao   = $('#desc_cadastro').val();
+        let valor       = $('#valor_cadastro').val();
+        let data        = $('#data_cadastro').val();
+        let status      = $('#cad_status').val();
+        let tipo        = $('#tipo_conta').val();
+
 
         let dados = {
             descricao: descricao,
             valor: valor,
             data_vencimento: data,
             status: status,
+            tipo_conta: tipo
         }
         if (id_conta > 0) {
             url_contas = base_url + 'contas/salvar/' + id_conta
@@ -70,6 +73,7 @@
         $('#valor_cadastro').val('');
         $('#data_cadastro').val('');
         $('#cad_status').val(0);
+        $('#tipo_conta').val(0);
     }
 
     function listar() {
@@ -152,6 +156,7 @@
                 $('#valor_cadastro').val('R$' + server.valor_br);
                 $('#data_cadastro').val(server.data_vencimento);
                 $('#cad_status').val(server.status);
+                $('#tipo_conta').val(server.tipo_conta);
 
                 $('#icon_fechar_cadastro').show();
                 $('#icon_abrir_cadastro').hide();

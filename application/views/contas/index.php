@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Tipo de conta</label>
-                    <select class="form-control" id="cad_status">
+                    <select class="form-control" id="tipo_conta">
                         <option value="0">Despesa</option>
                         <option value="1">Receita</option>
                     </select>

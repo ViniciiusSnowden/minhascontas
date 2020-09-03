@@ -13,7 +13,7 @@ class Contas extends CI_Controller
         $this->id_usuario = $this->session->userdata['id_usuario'];
         $this->load->helper('util');
     }
-    
+
     public function index()
     {
         $dadosView['meio'] = 'contas/index';
@@ -42,7 +42,8 @@ class Contas extends CI_Controller
             foreach ($dados as $key => $value) {
                 $response[$key]['id'] = $value->id;
                 $bandage = $value->status == 1 ? '<span class="badge badge-success">Pago</span>' : '<span class="badge badge-warning">Pendente</span>';
-                $response[$key]['descricao'] = '<a class="linhaEditar" href="javascript:void(0)" data-id="' . $value->id . '">' . $value->descricao . ' ' . $bandage . '</a>';
+                $bandageTipo = $value->tipo_conta == 1 ? 'style="color:green;"' : 'style="color:red;"';
+                $response[$key]['descricao'] = '<a class="linhaEditar"' . $bandageTipo . ' href="javascript:void(0)" data-id="' . $value->id . '">' . $value->descricao . ' ' . $bandage . '</a>';
                 $response[$key]['status'] = $value->status;
                 $response[$key]['data_vencimento'] = dataToBr($value->data_vencimento);
             }
@@ -74,11 +75,11 @@ class Contas extends CI_Controller
         if (is_numeric($id_conta)) {
             $dadosAjax = $this->input->post();
             $dadosAjax['valor'] = tratarValorToSql($dadosAjax['valor']);
-            $this->Contas_model->salvar($dadosAjax,$id_conta, $this->id_usuario);
+            $this->Contas_model->salvar($dadosAjax, $id_conta, $this->id_usuario);
             $dadosRetorno['status']         = 200;
             $dadosRetorno['response']       = 'Conta alterada!';
             $this->json($dadosRetorno);
-        }else{
+        } else {
             parametroNaoNumerico();
         }
     }
@@ -87,17 +88,18 @@ class Contas extends CI_Controller
     {
         $id_conta = $this->uri->segment(3);
         if (is_numeric($id_conta)) {
-            $dadosAjax['removido'] = 'S'; 
-            $this->Contas_model->salvar($dadosAjax,$id_conta, $this->id_usuario);
+            $dadosAjax['removido'] = 'S';
+            $this->Contas_model->salvar($dadosAjax, $id_conta, $this->id_usuario);
             $dadosRetorno['status']         = 200;
             $dadosRetorno['response']       = 'Conta Excluída.';
             $this->json($dadosRetorno);
-        }else{
+        } else {
             parametroNaoNumerico();
         }
     }
 
-    private function json($dados, $status = 200){
+    private function json($dados, $status = 200)
+    {
         $this->output
             ->set_content_type('application/json')
             ->set_status_header($status)

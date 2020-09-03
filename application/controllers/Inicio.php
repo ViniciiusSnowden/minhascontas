@@ -14,24 +14,33 @@ class Inicio extends CI_Controller
 	{
 		$dadosView['meio'] = 'inicio/index';
 		$dadosView['js'] = 'inicio/js';
-        $this->load->view('tema/tema', $dadosView);
+		$this->load->view('tema/tema', $dadosView);
 	}
 
-	public function listarDadosDash(){
-		$id 			= $this->session->userdata['id_usuario'];
-		$total 			= $this->Contas_model->listarTudoDash($id);
-		$valorTotalPago = $this->Contas_model->listarTudoPagoDash($id);
-		$totalPed 		= $this->Contas_model->listarTudoPendenteContDash($id);
+	public function listarDadosDash()
+	{
+		$id 				= $this->session->userdata['id_usuario'];
+		$resTotalReceita  	= $this->Contas_model->getReceita($id);
+		$resTotalDespesa	= $this->Contas_model->getDespesa($id);
+		$resQtdTotalDespesa	= $this->Contas_model->getQtdDespesa($id);
+		$resQtdTotalDespesaGeral = $this->Contas_model->getDespesaTotal($id);
+		$resQtdTotalDespesaGeralPago = $this->Contas_model->getDespesaTotalPago($id);
 
-		if($total[0]->qtd > 0){
-			$porcentagemPago = ($valorTotalPago[0]->qtd*100)/$total[0]->qtd;
-		}else{
-			$porcentagemPago = 0;
+		$totalReceita  = $resTotalReceita['total'] != null ? $resTotalReceita['total'] : 0;
+		$totalDespesa  = $resTotalDespesa['total'] != null ? $resTotalDespesa['total'] : 0;
+
+		$saldo = $totalReceita - $totalDespesa;
+
+		$porcentagemPago = 0;
+
+		if ($resQtdTotalDespesaGeral['total'] > 0) {
+			$porcentagemPago = ($resQtdTotalDespesaGeralPago['total'] * 100) / $resQtdTotalDespesaGeral['total'];
 		}
-		$res['total'] 			= $total[0]->total > 0 ? number_format($total[0]->total,2,",",".") : '0,00';
-		$res['totalPago'] 		= $valorTotalPago[0]->total > 0 ? number_format($valorTotalPago[0]->total,2,",",".") : '0,00';
-		$res['totalPendente'] 	= $totalPed[0]->total;
-		$res['PorctPag'] 		= number_format($porcentagemPago, 0, '.', ',');
+
+		$res['saldo']   	= number_format($saldo, 2, ",", ".");
+		$res['despesa'] 	= number_format($totalDespesa, 2, ",", ".");
+		$res['qtd_pendente'] = $resQtdTotalDespesa['total'];
+		$res['porcentagem_pago'] = number_format($porcentagemPago, 0, '.', ',');
 
 		echo json_encode($res);
 	}
