@@ -8,10 +8,10 @@ function dataToBr($data)
 function tratarValorToSql($valor)
 {
         $v1 = explode('R$', $valor);
-        if($v1[0] == ''){
+        if ($v1[0] == '') {
                 $valor = str_replace(".", "", $v1[1]);
                 $valor = str_replace(",", ".", $valor);
-        }else{
+        } else {
                 $valor = str_replace(".", "", $v1[0]);
                 $valor = str_replace(",", ".", $valor);
         }
@@ -24,4 +24,17 @@ function parametroNaoNumerico()
         $dadosErro['codigo'] = 300;
         $dadosErro['erro']   = 'Você precisa passar um parâmtro númerico.';
         echo json_encode($dadosErro);
+}
+
+function is_logged_in()
+{
+        // Get current CodeIgniter instance
+        $CI = &get_instance();
+        // We need to use $CI->session instead of $this->session
+        $user = $CI->session->userdata('id_usuario');
+        if (!isset($user)) {
+                $dataOff['status'] = 'Deslogado';
+                echo json_encode($dataOff);
+                die;
+        }
 }

@@ -11,7 +11,6 @@ class Contas extends CI_Controller
         parent::__construct();
         $this->load->model('Contas_model');
         $this->id_usuario = $this->session->userdata['id_usuario'];
-        $this->load->helper('util');
     }
 
     public function index()
